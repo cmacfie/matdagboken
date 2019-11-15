@@ -1,8 +1,9 @@
 setup = () => {
     document.getElementById('date').value = new Date().toDateInputValue();
-    console.log(new Date().toDateInputValue());;
+    console.log(new Date().toDateInputValue());
+    rotatingImages();
     document.getElementById('copy').addEventListener('click', (event) => {
-        addAnimation(event, 'bounceOut', 'bounceIn');
+        addAnimation(event.target, 'bounceOut', 'bounceIn', 1000, 1000);
         getAllText();
         var copyText = document.getElementById("hiddenArea");
 
@@ -15,17 +16,46 @@ setup = () => {
     }, false);
 };
 
-function addAnimation(element, animation1, animation2) {
-    element.target.classList.add('animated');
-    element.target.classList.add(animation1);
-    setTimeout(() => {
-        element.target.classList.add(animation2);
-        element.target.classList.remove(animation1);
-        setTimeout(() => {
-            element.target.classList.remove(animation2);
+function rotatingImages() {
+    const images = ['apple', 'baker', 'cherries', 'chocolate', 'cupcake', 'pizza', 'strawberry', 'sushi', 'watermelon'];
+    const imageDOM = document.getElementById('image');
+    var order = [];
+    for(var i = 0; i < images.length; i++) {
+        order.push(i);
+    }
+    console.log(order);
+    const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
+    shuffleArray(order);
+    var counter = 0;
+    imageDOM.src = `images/${images[order[counter]]}.png`;
+    counter++;
+    addAnimation(imageDOM, 'zoomInLeft', 'zoomOutRight', 3000, 1000);
+    if(counter === order.length) {
+        counter = 0;
+        shuffleArray(order);
+    }
+    setInterval(() => {
+        imageDOM.src = `images/${images[order[counter]]}.png`;
+        counter++;
+        addAnimation(imageDOM, 'zoomInLeft', 'zoomOutRight', 3000, 1000);
+        if(counter === order.length) {
+            counter = 0;
+            shuffleArray(order);
+        }
+    }, 4000);
+}
 
-        },2000);
-    },2000);
+function addAnimation(element, animation1, animation2, timeUntilRemove, delay2) {
+    element.classList.add('animated');
+    element.classList.add(animation1);
+    setTimeout(() => {
+        element.classList.add(animation2);
+        element.classList.remove(animation1);
+        setTimeout(() => {
+            element.classList.remove(animation2);
+
+        },delay2);
+    },timeUntilRemove);
 }
 
 getAllText = () => {
