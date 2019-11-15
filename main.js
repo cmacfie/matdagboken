@@ -38,8 +38,10 @@ getAllText = () => {
     Array.from(inputs).map((input, index) => {
         if(input.value.length > 0) {
             var c = '';
-            if (index === 0) {
-                c = input.value.replace('T', ' ');
+            if (index < 2) {
+                if(!isJustEndOfDay) {
+                    c = input.value.replace('T', ' ');
+                }
             } else if (input.type === 'checkbox') {
                 if(!isJustEndOfDay) {
                     c = `${input.value}: ${input.checked ? 'Ja' : 'Nej'}` + '\n';

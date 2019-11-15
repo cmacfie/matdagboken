@@ -43,11 +43,11 @@
         <h1>Sammanfattning för dagen:</h1>
         <p>Frågor att besvara i slutet av dagen (På en skala 1 till 10).<br>1: Inte alls/dåligt. 10: Mycket/mycket bra</p>
         <div class="input-container">
-            <span>Hur regelbundet har jag ätit idag? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur regelbundet har jag ätit idag?" type="number"><br></span>
-            <span>Hur mycket har jag varvat ner idag? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag varvat ner idag?" type="number"><br></span>
+            <span>Hur regelbundet har jag ätit idag? <input max="10" min="1" placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur regelbundet har jag ätit idag?" type="number"><br></span>
+            <span>Hur mycket har jag varvat ner idag? <input max="10" min="1" placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag varvat ner idag?" type="number"><br></span>
             <span>Hur mycket har jag följt tallriksmodellen vid...<br></span>
-            Lunch? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag följt tallriksmodellen vid lunch?" type="number">
-            Middag? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag följt tallriksmodellen vid middag?" type="number"><br>
+            Lunch? <input max="10" min="1" placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag följt tallriksmodellen vid lunch?" type="number">
+            Middag? <input max="10" min="1" placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag följt tallriksmodellen vid middag?" type="number"><br>
         </div>
         <button class="btn fullwidth" id="copy">Kopiera</button>
         <textarea readonly id="hiddenArea" style="opacity:0; height:0; width:0;"></textarea>
