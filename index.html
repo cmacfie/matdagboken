@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matdagboken</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="icon" href="apple_small.png">
+    <link rel="stylesheet" type="text/css" href="animate.css">
+</head>
+<body>
+<main class="main">
+    <div class="main-container" id="main-container">
+        <div class="header">
+            <h1>Matdagboken</h1>
+            <img src="apple_big.png" class="animated infinite pulse delay-1s slow">
+        </div>
+        <div style="width:100%; height:1px; background:#333; margin:16px 0"></div>
+        <h1>En Måltid:</h1>
+        <div class="input-container">
+            Tid:<br>
+            <input type="date" placeholder="Datum" id="date">
+            <input type="time" placeholder="HH:MM" value="00:00" id="time">
+        </div>
+        <div class="input-container">
+            <label><input type="checkbox" name="bulimia" value="Hetsätning">Hetsätning</label><br>
+            <label><input type="checkbox" name="compensate" value="Kompensatoriskt beteende">Kompensatoriskt beteende</label>
+        </div>
+        <div class="input-container">
+            Plats:<br>
+            <input class="fullwidth" name="Plats:" type="textfield" placeholder="Var är du?" id="field2">
+        </div>
+        <div class="input-container">
+            Måltid:<br>
+            <input class="fullwidth" name="Måltid:" type="textfield" placeholder="Vad åt du?" id="field2">
+        </div>
+        <div class="input-container">
+            Tankar/Känslor/Kommentar:<br>
+            <input class="fullwidth" name="Tankar:" type="textfield" placeholder="Vad har du för tankar/känslor just nu?" id="field3">
+        </div>
+        <div style="width:100%; height:1px; background:#333; margin:16px 0"></div>
+        <h1>Sammanfattning för dagen:</h1>
+        <p>Frågor att besvara i slutet av dagen (På en skala 1 till 10).<br>1: Inte alls/dåligt. 10: Mycket/mycket bra</p>
+        <div class="input-container">
+            <span>Hur regelbundet har jag ätit idag? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur regelbundet har jag ätit idag?" type="number"><br></span>
+            <span>Hur mycket har jag varvat ner idag? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag varvat ner idag?" type="number"><br></span>
+            <span>Hur mycket har jag följt tallriksmodellen vid...<br></span>
+            Lunch? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag följt tallriksmodellen vid lunch?" type="number">
+            Middag? <input placeholder="1-10" style="width: 70px;padding: 6px;" name="Hur mycket har jag följt tallriksmodellen vid middag?" type="number"><br>
+        </div>
+        <button class="btn fullwidth" id="copy">Kopiera</button>
+        <textarea disabled id="hiddenArea" style="opacity:0; height:0; width:0;"></textarea>
+    </div>
+</main>
+<footer>
+    Gjord av Christoffer MacFie 2019 - Fri att användas av vem som helst.
+</footer>
+</body>
+
+<script src="main.js"></script>
+<!--<script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>-->
+</html>
