@@ -24,7 +24,7 @@ function addAnimation(element, animation1, animation2) {
         setTimeout(() => {
             element.target.classList.remove(animation2);
 
-        },1000);
+        },2000);
     },2000);
 }
 
