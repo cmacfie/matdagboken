@@ -3,10 +3,8 @@ setup = () => {
     console.log(new Date().toDateInputValue());;
     document.getElementById('copy').addEventListener('click', (event) => {
         addAnimation(event, 'bounceOut', 'bounceIn');
-        console.log(event.target.classList.add("animated"));
         getAllText();
         var copyText = document.getElementById("hiddenArea");
-        console.log(document.getElementsByTagName('main-container'))
 
         /* Select the text field */
         copyText.select();
@@ -33,13 +31,19 @@ function addAnimation(element, animation1, animation2) {
 getAllText = () => {
     const inputs = document.getElementsByTagName('input');
     var string = '';
+    const dinnerFields = document.getElementsByClassName('dinner-field');
+    const isJustEndOfDay = Array.from(dinnerFields).filter(dinnerField => {
+        return dinnerField.value.length > 0;
+    }).length === 0;
     Array.from(inputs).map((input, index) => {
         if(input.value.length > 0) {
             var c = '';
             if (index === 0) {
                 c = input.value.replace('T', ' ');
             } else if (input.type === 'checkbox') {
-                c = `${input.value}: ${input.checked ? 'Ja' : 'Nej'}` + '\n';
+                if(!isJustEndOfDay) {
+                    c = `${input.value}: ${input.checked ? 'Ja' : 'Nej'}` + '\n';
+                }
             } else {
                 c = `${input.name} ${input.value}` + '\n';
             }
