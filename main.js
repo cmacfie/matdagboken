@@ -23,7 +23,6 @@ function rotatingImages() {
     for(var i = 0; i < images.length; i++) {
         order.push(i);
     }
-    console.log(order);
     const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
     shuffleArray(order);
     var counter = 0;
@@ -70,16 +69,21 @@ getAllText = () => {
             var c = '';
             if (index < 2) {
                 if(!isJustEndOfDay) {
-                    c = input.value.replace('T', ' ');
+                    c = input.value.replace('T', ' ') + ' ';
+                }
+                if(index === 1) {
+                    c += '\n';
                 }
             } else if (input.type === 'checkbox') {
-                if(!isJustEndOfDay) {
+                if(!isJustEndOfDay && input.checked) {
                     c = `${input.value}: ${input.checked ? 'Ja' : 'Nej'}` + '\n';
                 }
             } else {
                 c = `${input.name} ${input.value}` + '\n';
             }
-            string += c;
+            if(c.length > 0) {
+                string += c;
+            }
         }
     });
     document.getElementById('hiddenArea').textContent  = string;
